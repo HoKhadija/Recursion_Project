@@ -1,0 +1,27 @@
+FUNCTION isPalindrome(word : STRING) : BOOLEAN
+VAR
+    i : INTEGER;
+    lowercase_word : STRING;
+BEGIN
+    lowercase_word := word.toLowercase(); //if the user enter 'Radar' it will become 'radar'
+    FOR i FROM 0 TO (lowercase_word.length-1)/2 STEP 1 DO //Starting from the first character at index 0 and ending at the middle character of the word. Ex, the loop will iterate from index 0 to (5-1)/2 = 2.
+        IF (lowercase_word[i] <> lowercase_word[lowercase_word.length-1-i]) THEN
+            RETURN false;
+        END_IF
+    END_FOR
+    RETURN true ;
+END
+
+ALGORITHM IsPalindrome
+VAR
+    word : STRING
+BEGIN
+    write("Enter a word");
+    read(word);
+
+    IF (isPalindrome(word)) THEN
+        write(word," is Palindrome");
+    ELSE
+        write(word, " isn't Palindrome");
+    END_IF
+END
